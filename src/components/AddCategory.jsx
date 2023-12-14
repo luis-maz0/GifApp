@@ -1,22 +1,29 @@
 import { useState } from "react"
+import { PropTypes } from "prop-types"
 
-export const AddCategory = ()=>{
-    const [inputValue, setInputValue] = useState(); 
+export const AddCategory = ({ onNewCategory })=>{
+    const [inputValue, setInputValue] = useState(""); 
     const onInputValue = ({ target })=>{
-        console.log( target.value); 
         setInputValue( target.value );
     }
     const onSubmit = (e)=>{
         e.preventDefault(); 
-        console.log( inputValue)
+        if( inputValue.trim().length <= 1) return 
+        onNewCategory(inputValue);
+        setInputValue(""); 
     }
-    return(
-        <form onSubmit={ onSubmit }>
-            <input
-                type="text"
-                placeholder="Search gif"
-                onChange={ onInputValue }
-            />
-        </form>
-    )
+    return (
+      <form onSubmit={onSubmit}>
+        <input
+          value={inputValue}
+          type="text"
+          placeholder="Search gif"
+          onChange={onInputValue}
+        />
+        <button onClick={ onSubmit }>Search gif </button>
+      </form>
+    );
+}
+AddCategory.propTypes = {
+    onNewCategory: PropTypes.func,
 }

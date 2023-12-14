@@ -2,23 +2,28 @@ import { useState } from "react";
 import { AddCategory } from "./components/AddCategory";
 
 export const GifApp = ()=>{
-    const [categorias, setCategorias] = useState(["Rick and Morty", "Mad Max"]);
+    const [categories , setCategories] = useState([]);
     
-    
-    return(
-        <>
-            {/*Titulo*/}
-            <h1>GifApp</h1>
-            {/*Entrada*/}
-            <AddCategory/>
-            <button> Agregar categoria </button>
-            {/*Lista de Gifs*/}
-            <ol>{ categorias.map( categoria => {
-                return <li key={categoria}> {categoria} </li>
-            })} 
-            </ol>
-                {/* GifCard */}
-        </>
-    ) 
+    const onAddCategory = (newCategory)=>{
+        setCategories([newCategory, ...categories]);
+    }
+    return (
+      <>
+        {/*Titulo*/}
+        <h1>GifApp</h1>
+        {/*Entrada*/}
+        <AddCategory 
+            onNewCategory = {onAddCategory} 
+        />
+        {/*Lista de Gifs*/}
+        <ol>
+          {categories.map((categorie) => {
+            return <li key={categorie}> {categorie} </li>;
+          })}
+        </ol>
+        {/* GifCard */}
+      </>
+    ); 
 }
+
 
