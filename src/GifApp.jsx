@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { AddCategory } from "./components/AddCategory";
+import { GifCard } from "./components/GifCard";
 
 export const GifApp = ()=>{
     const [categories , setCategories] = useState([]);
     
     const onAddCategory = (newCategory)=>{
+        if( categories.includes(newCategory)) return; 
         setCategories([newCategory, ...categories]);
     }
     return (
@@ -14,14 +16,14 @@ export const GifApp = ()=>{
         {/*Entrada*/}
         <AddCategory 
             onNewCategory = {onAddCategory} 
-        />
-        {/*Lista de Gifs*/}
-        <ol>
-          {categories.map((categorie) => {
-            return <li key={categorie}> {categorie} </li>;
-          })}
-        </ol>
+        />    
         {/* GifCard */}
+        {
+            categories.map((category) => (  
+                <GifCard key={category} 
+                         category={category}
+                />))
+        }
       </>
     ); 
 }
