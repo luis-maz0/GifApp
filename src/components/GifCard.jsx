@@ -1,10 +1,14 @@
+import { getGifs } from "../GetGifs";
+
 export const GifCard = ({ category }) => {
-    const amountGifs = [1,2,3,4,5]; //Traer los gifs con Fetch. 
+    
+    getGifs(); //pesime práctica -> Arreglar con useEffect. 
+
     return (
     <>
         <h3>{ category }</h3>
         { 
-            amountGifs.map( gif => <p key={ gif }>{ gif }</p> )
+            //amountGifs.map( gif => <p key={ gif }>{ gif }</p> )
         }
     </>)
 }
