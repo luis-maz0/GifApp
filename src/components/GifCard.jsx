@@ -1,9 +1,12 @@
-import { getGifs } from "../GetGifs";
+import { useEffect } from "react";
+import { getGifs } from "../helpers/getGifs";
 
 export const GifCard = ({ category }) => {
     
-    getGifs(); //pesime práctica -> Arreglar con useEffect. 
-
+    useEffect(()=>{
+        getGifs(category)
+    }, []) 
+    
     return (
     <>
         <h3>{ category }</h3>
