@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { AddCategory } from "./components/AddCategory";
-import { GifCard } from "./components/GifCard";
+import { GifGrid } from "./components/GifGrid";
 
 export const GifApp = ()=>{
     const [categories , setCategories] = useState([]);
@@ -17,10 +17,10 @@ export const GifApp = ()=>{
         <AddCategory 
             onNewCategory = {onAddCategory} 
         />    
-        {/* GifCard */}
+        {/* GifGrid */}
         {
             categories.map((category) => (  
-                <GifCard key={category} 
+                <GifGrid key={category} 
                          category={category}
                 />))
         }
