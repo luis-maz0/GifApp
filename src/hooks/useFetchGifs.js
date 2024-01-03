@@ -11,7 +11,6 @@ export const useFetchGifs = ( category ) => {
         setGifs(newGif)
         setIsLoading(false)
     }
-
     useEffect(() => {
         getImages()
     }, [])
