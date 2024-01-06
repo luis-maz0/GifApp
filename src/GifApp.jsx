@@ -11,7 +11,7 @@ export const GifApp = ()=>{
     return (
       <>
         {/*Titulo*/}
-        <h1>GifApp</h1>
+        <h1>GIF EXPLORER</h1>
         {/*Entrada*/}
         <AddCategory 
             onNewCategory = {onAddCategory} 
