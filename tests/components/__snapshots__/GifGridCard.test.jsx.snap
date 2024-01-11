@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas en <GifGridCar/> Match con el snapshot 1`] = `
+<div>
+  <div
+    class="card"
+  >
+    <img
+      alt="One Piece"
+      src="https://onepiece.com/luffy.jpg"
+    />
+  </div>
+</div>
+`;
